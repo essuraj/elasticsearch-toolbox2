@@ -1,0 +1,33 @@
+<template>
+  <h1 class="uk-h1">${title}</h1>
+  <div class="uk-background-muted uk-padding uk-panel">
+    <div class="uk-child-width-1-3@s uk-child-width-1-4@m uk-child-width-1-5@l uk-child-width-1-6@xl uk-grid-small"
+         uk-grid="">
+      <div repeat.for="index of indexes">
+        <div class="uk-card ${index.status==='open'?'uk-card-default':''} uk-card-hover ${index.health==='yellow'?'warn-border':index.health==='green'?'ok-border':'error-border'} uk-animation-slide-bottom-small">
+          <h4 class="uk-padding-small uk-margin-remove-bottom ">${index.index}</h4>
+          <ul class="uk-list uk-list-striped uk-margin-remove"
+              show.bind="index.status==='open'">
+            <li>
+              <div class="uk-panel uk-panel-box uk-text-break">${index.pri}&nbsp;primaries,&nbsp;${index.rep}&nbsp;replicas</div>
+            </li>
+            <li>
+              <p class="uk-text-meta">
+              <span class="uk-text-primary uk-text-bold">${index['docs.count']}</span>&nbsp;docs&nbsp;/&nbsp; 
+              <span class="uk-text-danger uk-text-bold">${index['docs.deleted']}</span>&nbsp;deleted</p>
+            </li>
+            <li>
+            <span class="uk-text-success uk-text-bold">${index['store.size']}</span>&nbsp;of total store.</li>
+            <li>
+            <span class="uk-text-success uk-text-bold">${index['pri.store.size']}</span>&nbsp;of primary store.</li>
+          </ul>
+          <span class="uk-label uk-margin-small uk-margin-small-left"
+                repeat.for="doc of index.mappings">${doc}</span>
+          <span class="uk-label uk-label-danger uk-margin-small uk-margin-small-left"
+                show.bind="index.mappings.length===0">NO MAPPINGS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+</template>

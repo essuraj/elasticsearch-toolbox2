@@ -1,0 +1,9 @@
+.ok-border{
+    border-left: 4px solid mediumseagreen;
+}
+.warn-border{
+    border-left: 4px solid darkorange;
+}
+.error-border{
+    border-left: 4px solid darkred;
+}
