@@ -12,8 +12,7 @@
     "displayName": "TypeScript",
     "fileExtension": ".ts",
     "dtsSource": [
-      "./typings/**/*.d.ts",
-      "./custom_typings/**/*.d.ts"
+      "./typings/**/*.d.ts"
     ],
     "source": "src/**/*.ts"
   },
@@ -33,11 +32,6 @@
     "id": "vscode",
     "displayName": "Visual Studio Code"
   },
-  "unitTestRunner": {
-    "id": "karma",
-    "displayName": "Karma",
-    "source": "test/unit/**/*.ts"
-  },
   "paths": {
     "root": "src",
     "resources": "src/resources",
@@ -45,10 +39,6 @@
     "attributes": "src/resources/attributes",
     "valueConverters": "src/resources/value-converters",
     "bindingBehaviors": "src/resources/binding-behaviors"
-  },
-  "testFramework": {
-    "id": "jasmine",
-    "displayName": "Jasmine"
   },
   "build": {
     "targets": [
@@ -124,12 +114,6 @@
             "name": "aurelia-templating-router",
             "path": "../node_modules/aurelia-templating-router/dist/amd",
             "main": "aurelia-templating-router"
-          },
-          {
-            "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "dev"
           }
         ]
       }
