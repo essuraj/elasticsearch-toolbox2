@@ -1,0 +1,53 @@
+<template>
+  <require from="./resources/elements/header/navbar"></require>
+  <require from="./resources/elements/footer/footer"></require>
+  <div uk-grid class="uk-grid-small">
+    <nav class="uk-navbar-container uk-width-1-1">
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="#">elastic5earch toolbox</a>
+        <div class="uk-navbar-item">
+          <form>
+            <input class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="elasticsearch host:port" value.bind="esURL">
+            <button class="uk-button uk-button-small uk-button-primary" click.trigger="connectToES()">Connect</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="uk-card uk-card-default uk-card-small uk-width-1-4" show.bind="indexes">
+      <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" uk-nav>
+        <li class="uk-active"><a href="#">INDICES</a></li>
+        <li class="uk-active"><a href="#" show.bind="indexes.length==='0'">No Indices Found</a></li>
+        <li class="uk-parent" repeat.for="index of indexes">
+          <a href="#" class="uk-text-bold" css="text-decoration: ${index.status==='close'?'line-through':'none'};" click.trigger="getMapping(index.index)">
+            <span class="uk-margin-small-right" css="color: ${index.health==='yellow'?'#FF5722':index.health};" uk-icon="icon: database"></span>${index.index}
+          </a>
+          <ul class="uk-nav-sub">
+            <li repeat.for="map of index.mappings"><a href="#">${map}</a></li>
+            <li class="uk-text-muted" show.bind="index.mappings.length===0">No mappings</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="uk-card uk-card-default uk-card-small uk-width-3-4" show.bind="indexes">
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-small uk-table-hover">
+          <thead>
+            <tr>
+              <th repeat.for="item of dataHeader">${item}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr repeat.for="item of data">
+              <td>${item.email}</td>
+              <td>${item.name}</td>
+              <td>${item.phone}</td>
+              <td>${item.website}</td>
+              <td>${item.username}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <footer></footer>
+</template>

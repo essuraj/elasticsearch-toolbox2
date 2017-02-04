@@ -1,0 +1,15 @@
+<template>
+  <div uk-grid class="uk-grid-small">
+    <nav class="uk-navbar-container uk-width-1-1" uk-navbar>
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="#">elastic5earch toolbox</a>
+        <div class="uk-navbar-item">
+          <form>
+            <input class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="elasticsearch host:port" value.bind="esURL">
+            <button class="uk-button uk-button-small uk-button-primary" click.trigger="connectToES()">Connect</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+</template>
