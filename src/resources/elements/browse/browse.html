@@ -47,13 +47,13 @@
         <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" uk-nav>
           <li class="uk-active"><a href="#" show.bind="indexes.length==='0'">No Indices Found</a></li>
           <li class="uk-parent" repeat.for="index of indexes | filter:search.value">
-            <a href="#" class="uk-text-bold" css="text-decoration: ${index.status==='close'?'line-through':'none'};" click.trigger="getData(index.index)">
+            <a href="#" class="uk-text-bold uk-animation-slide-bottom-small" css="text-decoration: ${index.status==='close'?'line-through':'none'};" click.trigger="getData(index.index)">
               <span class="uk-margin-small-right" css="color: ${index.health==='yellow'?'#FF5722':index.health};" uk-icon="icon: database"></span>${index.index}
               <span class="uk-label" show.bind="index.mappings.length===0"> EMPTY</span>
             </a>
             <ul class="uk-nav-sub">
               <li repeat.for="map of index.mappings"><a href="#"><span uk-icon="icon: album"></span> ${map}</a></li>
-              <li class="uk-text-muted" show.bind="index.mappings.length===0">No mappings</li>
+              <li class="uk-text-muted" show.bind="index.mappings.length===0">No mappings found</li>
             </ul>
           </li>
         </ul>

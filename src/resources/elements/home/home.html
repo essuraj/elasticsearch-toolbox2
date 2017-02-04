@@ -9,7 +9,7 @@
           <ul class="uk-list uk-list-striped uk-margin-remove"
               show.bind="index.status==='open'">
             <li>
-              <div class="uk-panel uk-panel-box uk-text-break">${index.pri}&nbsp;primaries,&nbsp;${index.rep}&nbsp;replicas</div>
+              <div class="uk-panel uk-panel-box uk-text-small uk-text-break">${index.pri}&nbsp;primaries,&nbsp;${index.rep}&nbsp;replicas</div>
             </li>
             <li>
               <p class="uk-text-meta">
@@ -23,8 +23,8 @@
           </ul>
           <span class="uk-label uk-margin-small uk-margin-small-left"
                 repeat.for="doc of index.mappings">${doc}</span>
-          <span class="uk-label uk-label-danger uk-margin-small uk-margin-small-left"
-                show.bind="index.mappings.length===0">NO MAPPINGS</span>
+          <span class="uk-label uk-label-faded uk-margin-small uk-margin-small-left"
+                show.bind="index.mappings.length===0">NO MAPPINGS FOUND</span>
         </div>
       </div>
     </div>

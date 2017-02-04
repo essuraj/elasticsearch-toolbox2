@@ -7,3 +7,18 @@
 .error-border{
     border-left: 4px solid darkred;
 }
+.main-nav-bg-color
+{
+    background: #8BC34A !important;
+
+}
+.main-nav-bg-color a{
+    color: white;
+}
+.main-nav-bg-color .uk-navbar-item{
+        height: 50px
+}
+.uk-label-faded {
+    background-color: #c3bebf;
+    color: #fff;
+}

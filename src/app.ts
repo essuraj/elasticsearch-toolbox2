@@ -12,7 +12,7 @@ export class App {
   }
   async connectToES() {
     this.indexes = await this.factory.getIndexData(this.esurl);
-    UIkit.notification("Connecting and getting indexes", { status: 'primary' })
+    UIkit.notification("Connecting and getting indexes", { status: 'primary', pos: 'top-right' })
   }
 
 
