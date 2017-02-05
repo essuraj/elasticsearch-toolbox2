@@ -1,11 +1,16 @@
 <template>
   <require from="../../value-converters/filterIndex"></require>
-  <h1 class="uk-h1">${title}</h1>
+  <h3 class="uk-h3">${title}</h3>
   <div uk-grid class="uk-grid-small">
     <div class="uk-width-1-3@s uk-width-1-4@m uk-width-1-6@l">
       <div class="uk-margin-left uk-margin-right uk-panel">
         <span class="uk-active">INDICES</span>
-        <input class="uk-input uk-form-small uk-margin-small" id="Replica-Count" type="text" placeholder="Search..." ref="search">
+        <br />
+        <form class="uk-search uk-search-default uk-margin-small">
+          <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+          <input class="uk-search-input uk-form-small" type="search" placeholder="Search..." ref="search">
+        </form>
+        <!--<input class="uk-input uk-form-small uk-margin-small" id="Replica-Count" type="text" placeholder="Search..." ref="search">-->
         <div class="uk-margin-right-small uk-position-right">
           <ul class="uk-iconnav">
             <li>
@@ -13,7 +18,7 @@
                 <a type="button" uk-icon="icon: plus"></a>
                 <div uk-drop="mode: click;animation: uk-animation-slide-top-small; duration: 500">
                   <div class="uk-card uk-card-default">
-                    <div class="uk-card-body">
+                    <div class="uk-padding-small">
                       <form class="uk-form-stacked">
                         <div class="uk-margin">
                           <label class="uk-form-label" for="Index-Name">Index Name</label>
@@ -44,17 +49,25 @@
           </ul>
           </div>
         </div>
-        <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" uk-nav>
+        <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" uk-nav="multiple: true">
           <li class="uk-active"><a href="#" show.bind="indexes.length==='0'">No Indices Found</a></li>
           <li class="uk-parent" repeat.for="index of indexes | filter:search.value">
-            <a href="#" class="uk-text-bold uk-animation-slide-bottom-small" css="text-decoration: ${index.status==='close'?'line-through':'none'};" click.trigger="getData(index.index)">
-              <span class="uk-margin-small-right" css="color: ${index.health==='yellow'?'#FF5722':index.health};" uk-icon="icon: database"></span>${index.index}
-              <span class="uk-label" show.bind="index.mappings.length===0"> EMPTY</span>
-            </a>
-            <ul class="uk-nav-sub">
-              <li repeat.for="map of index.mappings"><a href="#"><span uk-icon="icon: album"></span> ${map}</a></li>
-              <li class="uk-text-muted" show.bind="index.mappings.length===0">No mappings found</li>
-            </ul>
+            <a href="#" class="uk-text-bold" css="text-decoration: ${index.status==='close'?'line-through':'none'};"
+              title="Index State : ${index.status}" uk-tooltip click.trigger="getData(index.index)">
+              <span class="uk-margin-small-right" css="color: ${index.health==='yellow'?'#FF5722':index.health};" uk-icon="icon: database"
+                title="Index Health : ${index.health}" uk-tooltip="pos: bottom-right"></span>${index.index}
+                <span class="uk-text-warning" show.bind="index.mappings.length===0" uk-icon="icon: warning" title="This index has no mappings."
+                  uk-tooltip="pos: bottom-right"></span>
+                  </a>
+                  <ul class="uk-nav-sub">
+                    <li show.bind="index.mappings.length!==0 && index.status==='open'">
+                      <select class="uk-select" change.delegate="getData(index.index,types)" value.bind="types" multiple>
+                <option repeat.for="map of index.mappings">${map}</option>
+            </select>
+                    </li>
+                    <li class="uk-text-muted" show.bind="index.mappings.length===0 && index.status==='open'">No mappings found</li>
+                    <li show.bind="index.status!=='open'" class="uk-text-muted">this index is closed.</li>
+                  </ul>
           </li>
         </ul>
       </div>
@@ -67,12 +80,14 @@
           <table class="uk-table uk-table-small uk-table-hover">
             <thead>
               <tr>
-                <th repeat.for="item of dataHeader">${item}</th>
+                <th repeat.for="item of dataHeader" class="uk-text-bold">${item}</th>
               </tr>
             </thead>
             <tbody>
               <tr repeat.for="item of data">
-                <td repeat.for="name of dataHeader">${item[name]}</td>
+                <td repeat.for="name of dataHeader">
+                  <div class="uk-text-break uk-text-small">${item[name]}</div>
+                </td>
               </tr>
             </tbody>
           </table>

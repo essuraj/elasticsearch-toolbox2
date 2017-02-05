@@ -4,12 +4,25 @@
 <head>
   <meta charset="utf-8">
   <title>Aurelia</title>
-  <link href="src/plugins/uikit/css/uikit.min.css" rel="stylesheet"></require>
+  <link href="src/plugins/uikit/css/uikit.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet"> 
+ <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC3lnRwTo0VFSOVBA31Z3muEhaaUr4axaU",
+      authDomain: "elasticsearch-toolbox.firebaseapp.com",
+      databaseURL: "https://elasticsearch-toolbox.firebaseio.com",
+      storageBucket: "elasticsearch-toolbox.appspot.com",
+      messagingSenderId: "791281858759"
+    };
+    firebase.initializeApp(config);
+
+  </script>
 </head>
 
-
 <body aurelia-app="main">
-  <script src="src/plugins/es/elasticsearch.min.js"></script> 
+  <script src="src/plugins/es/elasticsearch.min.js"></script>
   <script src="src/plugins/jquery/jquery-2.2.4.min.js"></script>
   <script src="src/plugins/uikit/js/uikit.min.js"></script>
   <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>

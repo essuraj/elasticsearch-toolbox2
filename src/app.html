@@ -14,9 +14,37 @@
               <span class="uk-form-icon" uk-icon="icon: link"></span>
               <input style="font-family: monospace;font-weight: bold" class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="elasticsearch host:port (eg. http://localhost:9200)"
                 value.bind="esurl">
+                <button class="uk-button uk-button-small uk-button-primary" show.bind="indexes===undefined" click.trigger="connectToES()">Connect</button>
+                <button class="uk-button uk-button-small uk-button-secondary" show.bind="indexes" click.trigger="disconnectToES()">Disconnect</button>
             </div>
-            <button class="uk-button uk-button-small uk-button-primary" click.trigger="connectToES()">Connect</button>
           </form>
+        </div>
+      </div>
+      <div class="uk-navbar-right">
+        <div show.bind="userName!==undefined" class="uk-width-auto uk-margin-small-left uk-margin-small-right">
+          <div class="uk-inline">
+            <button class="uk-button uk-button-link" type="button"><img class="uk-border-circle" width="32" height="32" src="${photoURL}"></button>
+            <div uk-drop="mode: click;pos: bottom-left;offset: 10">
+              <div class="uk-card uk-card-default">
+                <div class="uk-padding-small">
+                  <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-auto">
+                      <img class="uk-border-circle" width="40" height="40" src="${photoURL}">
+                    </div>
+                    <div class="uk-width-expand">
+                      <h3 class="uk-card-title uk-margin-remove-bottom">${userName}</h3>
+                      <p class="uk-text-meta uk-margin-remove-top">Welcome</p>
+                    </div>
+                    <button class="uk-button uk-button-default uk-button-small" click.trigger="logout()">Logout</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div show.bind="userName===undefined" class="uk-margin-small-right">
+          <a href="" class="uk-icon-button uk-button-primary uk-margin-small-left" click.trigger="tryGoogle()" uk-icon="icon: google"></a>
+          <a href="" class="uk-icon-button uk-button-secondary uk-margin-small-left" click.trigger="tryGithub()" uk-icon="icon: github"></a>
         </div>
       </div>
     </nav>
@@ -29,10 +57,10 @@
       </ul>
       <ul class="uk-switcher uk-margin">
         <li>
-          <home client.bind="client" esurl.bind="esURL" indexes.bind="indexes"></home>
+          <home esurl.bind="esURL" indexes.bind="indexes"></home>
         </li>
         <li>
-          <browse client.bind="client" esurl.bind="esURL" indexes.bind="indexes"></browse>
+          <browse esurl.bind="esURL" indexes.bind="indexes"></browse>
         </li>
         <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
         <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.
