@@ -5,7 +5,7 @@
          uk-grid="">
       <div repeat.for="index of indexes">
         <div class="uk-card ${index.status==='open'?'uk-card-default':''} ${index.health==='yellow'?'warn-border':index.health==='green'?'ok-border':'error-border'} uk-animation-slide-bottom-small">
-          <div class="uk-position-right uk-margin-top uk-margin-small-right">
+          <!--<div class="uk-position-right uk-margin-top uk-margin-small-right">
             <button class="uk-button uk-button-link"
                     type="button"
                     uk-icon="icon: more-vertical"></button>
@@ -25,7 +25,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div>-->
           <h4 class="uk-padding-small uk-margin-remove-bottom">${index.index}</h4>
           <ul class="uk-list uk-list-striped uk-margin-remove"
               show.bind="index.status==='open'">
@@ -34,13 +34,13 @@
             </li>
             <li>
               <p class="uk-text-meta">
-              <span class="uk-text-primary uk-text-bold">${index['docs.count']}</span>&nbsp;docs&nbsp;/&nbsp; 
+              <span class="uk-text-primary uk-text-bold">${index['docs.count']}</span>&nbsp;docs,&nbsp; 
               <span class="uk-text-danger uk-text-bold">${index['docs.deleted']}</span>&nbsp;deleted</p>
             </li>
             <li>
-            <span class="uk-text-success uk-text-bold">${index['store.size']}</span>&nbsp;of total store.</li>
+            <span class="uk-text-success uk-text-bold">${index['store.size']}</span>&nbsp;of total used storage.</li>
             <li>
-            <span class="uk-text-success uk-text-bold">${index['pri.store.size']}</span>&nbsp;of primary store.</li>
+            <span class="uk-text-success uk-text-bold">${index['pri.store.size']}</span>&nbsp;of primary storage used.</li>
           </ul>
           <span class="uk-label uk-margin-small uk-margin-small-left"
                 repeat.for="doc of index.mappings">${doc}</span>

@@ -12,7 +12,7 @@
           <form>
             <div class="uk-inline">
               <span class="uk-form-icon" uk-icon="icon: link"></span>
-              <input style="font-family: monospace;font-weight: bold" class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="elasticsearch host:port (eg. http://localhost:9200)"
+              <input style="font-family: monospace;font-weight: bold" class="uk-input uk-form-small uk-form-width-medium" type="text" placeholder="elasticsearch host:port (eg. http://localhost:9200)"
                 value.bind="esurl">
                 <button class="uk-button uk-button-small uk-button-primary" show.bind="indexes===undefined" click.trigger="connectToES()">Connect</button>
                 <button class="uk-button uk-button-small uk-button-secondary" show.bind="indexes" click.trigger="disconnectToES()">Disconnect</button>
@@ -49,11 +49,11 @@
       </div>
     </nav>
     <div class="uk-width-1-1 uk-margin-left" show.bind="indexes">
-      <ul uk-tab>
+      <ul uk-tab >
         <li><a href="#">Home</a></li>
         <li><a href="#">Browse</a></li>
-        <li><a href="#">Item</a></li>
-        <li><a href="#">Item</a></li>
+        <li><a href="#">Raw Query</a></li>
+        <li><a href="#">Query Builder</a></li>
       </ul>
       <ul class="uk-switcher uk-margin">
         <li>
@@ -62,7 +62,8 @@
         <li>
           <browse esurl.bind="esURL" indexes.bind="indexes"></browse>
         </li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
         <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.
         </li>
       </ul>

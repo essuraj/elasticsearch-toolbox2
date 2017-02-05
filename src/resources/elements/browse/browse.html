@@ -1,6 +1,7 @@
 <template>
   <require from="../../value-converters/filterIndex"></require>
-  <h3 class="uk-h3">${title}</h3>
+  <!--<h3 class="uk-h3">${title}</h3>-->
+  
   <div uk-grid class="uk-grid-small">
     <div class="uk-width-1-3@s uk-width-1-4@m uk-width-1-6@l">
       <div class="uk-margin-left uk-margin-right uk-panel">
@@ -52,8 +53,8 @@
         <ul class="uk-nav-default uk-nav-parent-icon uk-padding-small" uk-nav="multiple: true">
           <li class="uk-active"><a href="#" show.bind="indexes.length==='0'">No Indices Found</a></li>
           <li class="uk-parent" repeat.for="index of indexes | filter:search.value">
-            <a href="#" class="uk-text-bold" css="text-decoration: ${index.status==='close'?'line-through':'none'};"
-              title="Index State : ${index.status}" uk-tooltip click.trigger="getData(index.index)">
+            <a href="#" class="uk-text-bold" css="text-decoration: ${index.status==='close'?'line-through':'none'};" title="Index State : ${index.status}"
+              uk-tooltip click.trigger="getData(index.index)">
               <span class="uk-margin-small-right" css="color: ${index.health==='yellow'?'#FF5722':index.health};" uk-icon="icon: database"
                 title="Index Health : ${index.health}" uk-tooltip="pos: bottom-right"></span>${index.index}
                 <span class="uk-text-warning" show.bind="index.mappings.length===0" uk-icon="icon: warning" title="This index has no mappings."
@@ -62,7 +63,7 @@
                   <ul class="uk-nav-sub">
                     <li show.bind="index.mappings.length!==0 && index.status==='open'">
                       <select class="uk-select" change.delegate="getData(index.index,types)" value.bind="types" multiple>
-                <option repeat.for="map of index.mappings">${map}</option>
+                <option repeat.for="map of index.mappings"  value.bind="map">${map}</option>
             </select>
                     </li>
                     <li class="uk-text-muted" show.bind="index.mappings.length===0 && index.status==='open'">No mappings found</li>
@@ -76,6 +77,16 @@
           <span class="uk-text-primary " uk-icon="icon: info;ratio: 4"></span>
           <h1 class="uk-h1"> No data to show</h1>
         </div>
+        <!--<ul class="uk-pagination uk-flex-center uk-margin-remove-top" uk-margin>
+    <li><a href="#"><span uk-pagination-previous></span></a></li>
+    <li><a href="#">1</a></li>
+    <li class="uk-disabled"><span>...</span></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">6</a></li>
+    <li class="uk-active"><span>7</span></li>
+    <li><a href="#">8</a></li>
+    <li><a href="#"><span uk-pagination-next></span></a></li>
+</ul>-->
         <div class="uk-overflow-auto">
           <table class="uk-table uk-table-small uk-table-hover">
             <thead>
@@ -85,13 +96,19 @@
             </thead>
             <tbody>
               <tr repeat.for="item of data">
-                <td repeat.for="name of dataHeader">
+                <td repeat.for="name of dataHeader" uk-toggle="target: #modal-doc" click.trigger="viewDoc(item)">
                   <div class="uk-text-break uk-text-small">${item[name]}</div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+    <div id="modal-doc" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-overflow-auto">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <pre><code class="language-json" id="previewCode">${show}</code></pre>
       </div>
     </div>
     <br />

@@ -1,12 +1,13 @@
 import { bindable } from 'aurelia-framework';
 import { ESFactory as esF } from '../../services/esFactory'
-declare var UIkit;
+// declare var UIkit;
+declare var UIkit, Prism;
 export class Browse {
   @bindable client;
   @bindable indexes;
   @bindable esURL;
   data: any[];
-
+  show: string;
   dataHeader: string[];
   types: string[];
   factory: esF;
@@ -27,6 +28,15 @@ export class Browse {
     var result = await this.factory.getData(this.esURL, indexName, types);
     this.data = result.data;
     this.dataHeader = result.dataHeader;
+  }
+  viewDoc(item) {
+    this.show = JSON.stringify(item, null, 4);
+    // $('pre code').each(function(i, block) {
+    // hljs.highlightBlock(block);
+    // Prism.highlight(code, Prism.languages.javascript);
+    // });
+    var block = document.getElementById('previewCode')
+    Prism.highlightElement(block);
   }
 
 }

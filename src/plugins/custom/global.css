@@ -29,5 +29,7 @@
 
 body * {
   font-family: 'Quicksand', sans-serif !important;
-
+}
+body code span,body code{
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
 }
