@@ -1,4 +1,4 @@
 export class Footer {
- name = "elasticSearch toolbox";
+ name = "elasticsearch toolbox";
 }
 
