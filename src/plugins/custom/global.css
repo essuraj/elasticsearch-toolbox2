@@ -21,7 +21,9 @@
 .main-nav-bg-color .uk-navbar-item {
   height: 50px
 }
-
+.main-nav-bg-color .uk-logo{
+  background:#9CCC65;
+}
 .uk-label-faded {
   background-color: #c3bebf;
   color: #fff;
