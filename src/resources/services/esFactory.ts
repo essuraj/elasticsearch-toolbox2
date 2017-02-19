@@ -22,10 +22,10 @@ export class ESFactory {
 
         });
     }
-    async getIndexData(url: string) {
+    async getIndexData(url: string, ) {
         try {
             await this.connectToESWithURL(url);
-            var indexes = await this.client.cat.indices({ format: "json" });
+            var indexes = await this.client.cat.indices({ format: "json",v:true });
             var res = await this.client.indices.getMapping({});
             var indexWithMappings = indexes.map(x => {
                 if (res[x.index])
@@ -40,7 +40,7 @@ export class ESFactory {
             throw error;
         }
     }
-    async getData(url: string, indexName: string | string[], types: string | string[] = undefined) {
+    async getData(url: string, indexName: string | string[], types: string | string[] = undefined,from=0,size=20) {
         try {
             await this.connectToESWithURL(url);
             let query = {
@@ -49,7 +49,9 @@ export class ESFactory {
                     query: {
                         match_all: {
                         }
-                    }
+                    },
+                    from:from,
+                    size:size
                 }
             } as any;
             if (types !== undefined) {

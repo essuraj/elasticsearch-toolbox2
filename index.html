@@ -5,25 +5,47 @@
   <meta charset="utf-8">
   <title>elasticsearch-toolbox</title>
   <link rel="apple-touch-icon" sizes="57x57" href="/src/img/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/src/img/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/src/img/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/src/img/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/src/img/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/src/img/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/src/img/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/src/img/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/src/img/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/src/img/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/src/img/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon-16x16.png">
-<link rel="manifest" href="/src/img/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/src/img/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" sizes="60x60" href="/src/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/src/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/src/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/src/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/src/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/src/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/src/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/src/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/src/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/src/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/src/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/src/img/favicon-16x16.png">
+  <link rel="manifest" href="/src/img/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/src/img/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <link href="src/plugins/uikit/css/uikit.min.css" rel="stylesheet">
   <link href="src/plugins/pace/dataurl.css" rel="stylesheet">
   <link href="src/plugins/prism/prism.css" rel="stylesheet">
+
+
+
+
+        <link href="src/plugins/cm/codemirror.css" rel="stylesheet" />
+    <link href="src/plugins/cm/cmtheme/blackboard.css" rel="stylesheet" />
+    <link href="src/plugins/cm/lint.css" rel="stylesheet" />
+    <link href="src/plugins/cm/foldgutter.css" rel="stylesheet" />
+
+<script src="src/plugins/cm/codemirror-compressed.js"></script>
+    <script src="src/plugins/cm/matchbrackets.js"></script>
+    <script src="src/plugins/cm/foldgutter.js"></script>
+    <script src="src/plugins/cm/lint.js"></script>
+    <script src="src/plugins/cm/json-lint.js"></script>
+    <script src="src/plugins/cm/foldcode.js"></script>
+    <script src="src/plugins/cm/brace-fold.js"></script>
+    <script src="src/plugins/cm/continuecomment.js"></script>
+    <script src="src/plugins/cm/active-line.js"></script>
+    <script src="src/plugins/cm/comment.js"></script>
+    <script src="src/plugins/cm/formatting.js"></script>
+
+
   <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
   <script>
@@ -41,7 +63,7 @@
 </head>
 
 <body aurelia-app="main">
-  <script src="src/plugins/prism/prism.js"></script>
+  <script src="src/plugins/prism/prism.js" async></script>
   <script data-pace-options='{ "ajax": true }' src="src/plugins/pace/pace.min.js"></script>
   <script src="src/plugins/es/elasticsearch.min.js"></script>
   <script src="src/plugins/jquery/jquery-2.2.4.min.js"></script>

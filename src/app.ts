@@ -1,7 +1,7 @@
 declare var elasticsearch;
 declare var UIkit;
 import { ESFactory as esF } from './resources/services/esFactory'
-declare var firebase;
+declare var firebase; 
 export class App {
   esurl = 'http://localhost:9200';
   heading = 'elastic5earch toolbox';
@@ -37,6 +37,8 @@ export class App {
       this.indexes = undefined;
       UIkit.notification({ message: "<span uk-icon='icon: warning'></span> " + error.message, status: 'danger', pos: 'top-right', timeout: 5000 })
     }
+   
+
   }
   async disconnectToES() {
     try {

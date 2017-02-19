@@ -62,7 +62,7 @@
                   </a>
                   <ul class="uk-nav-sub">
                     <li show.bind="index.mappings.length!==0 && index.status==='open'">
-                      <select class="uk-select" change.delegate="getData(index.index,types)" value.bind="types" multiple>
+                      <select class="uk-select" change.delegate="setData(index.index,types)" value.bind="types" multiple>
                 <option repeat.for="map of index.mappings"  value.bind="map">${map}</option>
             </select>
                     </li>
@@ -77,16 +77,14 @@
           <span class="uk-text-primary " uk-icon="icon: info;ratio: 4"></span>
           <h1 class="uk-h1"> No data to show</h1>
         </div>
-        <!--<ul class="uk-pagination uk-flex-center uk-margin-remove-top" uk-margin>
-    <li><a href="#"><span uk-pagination-previous></span></a></li>
-    <li><a href="#">1</a></li>
-    <li class="uk-disabled"><span>...</span></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">6</a></li>
-    <li class="uk-active"><span>7</span></li>
-    <li><a href="#">8</a></li>
-    <li><a href="#"><span uk-pagination-next></span></a></li>
-</ul>-->
+<div class="uk-padding-small"> 
+  <ul class="uk-pagination uk-margin-remove-bottom">
+    <li><a href="#" click.trigger="paginate(false)"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
+    <li class="uk-margin-auto-left"><a href="#" click.trigger="paginate(true)">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
+</ul>
+<hr class="uk-divider-icon uk-margin-remove-bottom uk-margin-remove-top">
+
+ </div>
         <div class="uk-overflow-auto">
           <table class="uk-table uk-table-small uk-table-hover">
             <thead>

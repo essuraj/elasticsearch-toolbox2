@@ -3,6 +3,7 @@
   <require from="./resources/elements/header/navbar"></require>
   <require from="./resources/elements/footer/footer"></require>
   <require from="./resources/elements/home/home"></require>
+  <require from="./resources/elements/query/query"></require>
   <require from="./resources/elements/browse/browse"></require>
   <div uk-grid class="uk-grid-small">
     <nav uk-navbar class="uk-navbar-container uk-width-1-1 main-nav-bg-color uk-animation-slide-top">
@@ -49,7 +50,7 @@
       </div>
     </nav>
     <div class="uk-width-1-1 uk-margin-left" show.bind="indexes">
-      <ul uk-tab >
+      <ul uk-tab>
         <li><a href="#">Home</a></li>
         <li><a href="#">Browse</a></li>
         <li><a href="#">Raw Query</a></li>
@@ -63,7 +64,8 @@
           <browse esurl.bind="esURL" indexes.bind="indexes"></browse>
         </li>
         <li>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+          <query esurl.bind="esURL" indexes.bind="indexes"></query>
+        </li>
         <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.
         </li>
       </ul>
