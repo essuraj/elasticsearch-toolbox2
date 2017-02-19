@@ -4,10 +4,11 @@ elasticsearch-toolbox 2 improves upon existing es features and is now a site. wo
 [http://elasticsearch-toolbox.herokuapp.com/](http://elasticsearch-toolbox.herokuapp.com)
 
 ``` 
+Development
 > npm i
 > au run --watch // for browsersync
 
-build
+Build
 > au build --env prod // public dir (incomplete)
 > node index.js // copy other necessary files into public (public folder now has all files[will soon be fixed])
 
