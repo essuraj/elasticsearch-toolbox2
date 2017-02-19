@@ -7,7 +7,7 @@
     "url": "https://github.com/essuraj/elasticsearch-toolbox2"
   },
   "scripts": {
-    "install": "au build --en prod",
+    "postinstall": "au build --en prod",
     "start": "node index.js"
   },
   "license": "MIT",
