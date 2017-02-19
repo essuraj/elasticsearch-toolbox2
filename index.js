@@ -19,4 +19,7 @@ fs.ensureDir("public", function (err) {
   app.listen(process.env.PORT || 3000, () => {
     console.log("running at http://localhost:3000")
   });
+ app.get('/',function(req,res){
+     res.sendFile('index.html');
+});
 });
