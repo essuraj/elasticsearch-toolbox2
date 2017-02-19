@@ -1,2 +1,2 @@
-web: au build --en prod
+web: au build --env prod
 web: node index.js

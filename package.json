@@ -10,8 +10,6 @@
   },
   "scripts": { 
      "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-     "heroku-postinstall": "echo This runs afterwards.",
-    "postinstall": "au build --en prod",
     "start": "node index.js"
   },
   "license": "MIT",
