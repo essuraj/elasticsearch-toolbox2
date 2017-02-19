@@ -18,8 +18,5 @@
   "filesGlob": [
     "./src/**/*.ts",
     "./typings/index.d.ts"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  ]
 }
