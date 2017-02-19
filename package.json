@@ -1,7 +1,9 @@
 {
   "name": "elasticsearch-toolbox",
   "description": "An elasticsearch client application.",
-  "version": "2.0.0", 
+  "version": "2.0.0",   "engines": {
+    "node": "6.9.4"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/essuraj/elasticsearch-toolbox2"
