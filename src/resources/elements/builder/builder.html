@@ -1,6 +1,6 @@
 <template>
-  <h3 class="uk-h3">${title}</h3>
-  <div class="uk-background-muted uk-panel" uk-grid="">
+  <!--<h3 class="uk-h3">${title}</h3>-->
+  <div class="uk-panel" uk-grid="">
     <div class="uk-width-1-1">
       <div class="uk-inline">
         <button class="uk-button uk-button-default">
@@ -104,71 +104,85 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="uk-width-1-4">
-      <div class="uk-card uk-card-default uk-padding-small uk-width-1-1">
-        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
-          <li class="uk-nav-header">Picked Indices</li>
-          <li repeat.for="index of selectedIndices"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: database" ></span> ${index}</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="uk-width-3-4">
-      <div class="uk-grid-small uk-padding-small" uk-grid>
-        <div class="uk-card uk-card-default uk-padding-small uk-width-1-2">
-          <p>Search for documents with the following conditions</p>
-          <table class="uk-table uk-table-striped uk-table-small">
-            <thead>
-              <tr>
-                <th>CONDITION</th>
-                <th>FIELD</th>
-                <th>VALUE</th>
-                <th>TYPE</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr repeat.for="fq of queriesList">
-                <td>${fq.condition}</td>
-                <td>${fq.field}</td>
-                <td>${fq.fieldValue}</td>
-                <td>${fq.qType}</td>
-                <td>
-                  <a class="waves-effect waves-light btn btn-flat " style="padding: 0 8px;" ng-click="qfieldTemp.splice($index,1)">
-                    <i class="mdi-action-delete"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="uk-card uk-card-default uk-padding-small uk-width-1-2">
-          <p>Apply Aggregations for documents over the following terms</p>
-          <table class="uk-table uk-table-striped uk-table-small">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Field</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr repeat.for="fq of aggList">
-                <td>${fq.name}</td>
-                <td>${fq.type}</td>
-                <td>${fq.field}</td>
-                <td>
-                  <a class="waves-effect waves-light btn btn-flat " style="padding: 0 8px;" ng-click="aggList.splice($index,1)">
-                    <i class="mdi-action-delete"></i>
-                  </a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <hr class="uk-divider-icon">
 
+    </div>
+    <div class="uk-background-muted uk-width-1-1 ">
+      <div class="uk-width-1-3">
+        <div class="uk-card uk-card-default uk-width-1-1">
+          <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+              <div class="uk-width-expand">
+                <h3 class="uk-card-title uk-margin-remove-bottom">Your Query</h3>
+                <p class="uk-text-meta uk-margin-remove-top">
+                  Search in <br />
+                  <span show.bind="selectedIndices.length===0" class="uk-label uk-margin-small uk-margin-small-left">ALL</span>
+                  <span repeat.for="index of selectedIndices" class="uk-label uk-margin-small uk-margin-small-left">${index}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="uk-card-body">
+            <p>Your queries</p>
+            <table class="uk-table uk-table-striped uk-table-small">
+              <thead>
+                <tr>
+                  <th>CONDITION</th>
+                  <th>FIELD</th>
+                  <th>VALUE</th>
+                  <th>TYPE</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr colspan="4" show.bind="queriesList.length===0">
+                  <td> No queries added yet </td>
+                </tr>
+                <tr repeat.for="fq of queriesList">
+                  <td>${fq.condition}</td>
+                  <td>${fq.field}</td>
+                  <td>${fq.fieldValue}</td>
+                  <td>${fq.qType}</td>
+                  <td>
+                    <a class="uk-text-danger" href="" uk-icon="icon: close" click.trigger="queriesList.splice($index,1)"></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr class="uk-divider-icon">
+            <p>Your Aggregations</p>
+            <table class="uk-table uk-table-striped uk-table-small">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Field</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr colspan="4" show.bind="aggList.length===0">
+                  <td>No aggregations added yet </td>
+                </tr>
+
+                <tr repeat.for="fq of aggList">
+                  <td>${fq.name}</td>
+                  <td>${fq.type}</td>
+                  <td>${fq.field}</td>
+                  <td>
+                    <a class="uk-text-danger" href="" uk-icon="icon: close" click.trigger="aggList.splice($index,1)"></a>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="uk-card-footer">
+            <a href="#" class="uk-button uk-button-text">Read more</a>
+          </div>
+        </div>
+      </div>
+      <div class="uk-width-2-3"></div>
     </div>
   </div>
 </template>
