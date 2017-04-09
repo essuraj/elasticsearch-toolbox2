@@ -5,6 +5,7 @@
   <require from="./resources/elements/home/home"></require>
   <require from="./resources/elements/query/query"></require>
   <require from="./resources/elements/browse/browse"></require>
+  <require from="./resources/elements/builder/builder"></require>
   <div uk-grid class="uk-grid-small">
     <nav uk-navbar class="uk-navbar-container uk-width-1-1 main-nav-bg-color uk-animation-slide-top">
       <div class="uk-navbar-left">
@@ -49,14 +50,14 @@
         </div>
       </div>
     </nav>
-    <div class="uk-width-1-1" show.bind="indexes">
-      <ul uk-tab>
+    <div class="uk-width-1-1 uk-margin-remove" show.bind="indexes">
+      <ul class="uk-subnav uk-subnav-divider uk-padding-small uk-margin-remove-bottom" uk-switcher>
         <li><a href="#">Home</a></li>
         <li><a href="#">Browse</a></li>
         <li><a href="#">Raw Query</a></li>
         <li><a href="#">Query Builder</a></li>
       </ul>
-      <ul class="uk-switcher uk-margin">
+      <ul class="uk-switcher">
         <li>
           <home esurl.bind="esURL" indexes.bind="indexes"></home>
         </li>
@@ -66,7 +67,9 @@
         <li>
           <query esurl.bind="esURL" indexes.bind="indexes"></query>
         </li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed do eiusmod.
+        <li>
+          <builder esurl.bind="esURL" indexes.bind="indexes"></builder>
+          
         </li>
       </ul>
     </div>

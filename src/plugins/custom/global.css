@@ -31,7 +31,10 @@
   background-color: #c3bebf;
   color: #fff;
 }
-
+.pointable
+{
+  cursor: pointer !important
+ }
 h1,
 h2,
 h3,

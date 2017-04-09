@@ -4,14 +4,12 @@
         <div class="uk-width-1-3">
             <div class="uk-text-center" uk-grid>
                 <div class="uk-width-expand@m">
-                    <form>
                         <fieldset class="uk-fieldset">
                             <div class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
-                                <label repeat.for="index of indexes">
+                                <label class="pointable" repeat.for="index of indexes">
                                     <input class="uk-checkbox" type="checkbox" value.bind="index.index" checked.bind="selectedIndices"> ${index.index}</label>
                             </div>
                         </fieldset>
-                    </form>
                 </div>
                 <div class="uk-width-1-4@m">
                     <button class="uk-align-right uk-button uk-button-primary uk-button-small" click.trigger="getQ()"> Get</button>

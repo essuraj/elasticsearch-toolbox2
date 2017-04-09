@@ -23,6 +23,7 @@ export class App {
         // No user is signed in.
       }
     });
+    this.connectToES();
   }
   async connectToES() {
     try {

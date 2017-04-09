@@ -25,7 +25,7 @@ export class ESFactory {
     async getIndexData(url: string, ) {
         try {
             await this.connectToESWithURL(url);
-            var indexes = await this.client.cat.indices({ format: "json",v:true });
+            var indexes = await this.client.cat.indices({ format: "json", v: true });
             var res = await this.client.indices.getMapping({});
             var indexWithMappings = indexes.map(x => {
                 if (res[x.index])
@@ -40,7 +40,7 @@ export class ESFactory {
             throw error;
         }
     }
-    async getData(url: string, indexName: string | string[], types: string | string[] = undefined,from=0,size=20) {
+    async getData(url: string, indexName: string | string[], types: string | string[] = undefined, from = 0, size = 20) {
         try {
             await this.connectToESWithURL(url);
             let query = {
@@ -50,8 +50,8 @@ export class ESFactory {
                         match_all: {
                         }
                     },
-                    from:from,
-                    size:size
+                    from: from,
+                    size: size
                 }
             } as any;
             if (types !== undefined) {
@@ -74,7 +74,7 @@ export class ESFactory {
             console.error(error);
         }
     }
-async getResult(url: string, indexName: string | string[], types: string | string[] = undefined,queryBody:string,from=0,size=20) {
+    async getResult(url: string, indexName: string | string[], types: string | string[] = undefined, queryBody: string, from = 0, size = 20) {
         try {
             await this.connectToESWithURL(url);
             let query = {
@@ -84,16 +84,29 @@ async getResult(url: string, indexName: string | string[], types: string | strin
                         match_all: {
                         }
                     },
-                    from:from,
-                    size:size
+                    from: from,
+                    size: size
                 }
             } as any;
             if (types !== undefined) {
                 query.type = types;
             }
-            query.body=queryBody;
+            query.body = queryBody;
             var res = await this.client.search(query);
-           
+
+            return res;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    async getMappings(url: string, indexName: string | string[]) {
+        try {
+            await this.connectToESWithURL(url);
+
+            var res = await this.client.indices.getMapping({ index: indexName });
+
+
             return res;
         } catch (error) {
             console.error(error);

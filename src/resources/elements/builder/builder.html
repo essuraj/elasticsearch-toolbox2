@@ -1,0 +1,114 @@
+<template>
+  <h3 class="uk-h3">${title}</h3>
+  <div class=" uk-panel" uk-grid="">
+    <div class="uk-width-1-1">
+      <div class="uk-inline">
+        <button class="uk-button uk-button-default">
+    <span class="uk-margin-small-top uk-display-block" uk-icon="icon: database; ratio: 2"></span>
+
+    Pick Indices
+    </button>
+        <div uk-drop="mode: click">
+          <div class="uk-card uk-card-default">
+            <div class="uk-padding-small" style="max-height:200px;overflow: auto">
+              <fieldset class="uk-fieldset">
+                <div class="uk-margin uk-grid-small uk-child-width-auto" uk-grid>
+                  <label class="pointable" repeat.for="index of indexes">
+                                    <input class="uk-checkbox" type="checkbox" value.bind="index.index" checked.bind="selectedIndices"> ${index.index}</label>
+                </div>
+              </fieldset>
+            </div>
+            <!--<div class="uk-card-footer">
+            <button class="uk-button uk-button-primary uk-button-small uk-width-1-1" click.trigger="createIndex(iName,sCount,rCount)">Pick</button>
+          </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="uk-inline">
+        <button class="uk-button uk-button-default"  click.trigger="getMappings()">
+    <span class="uk-margin-small-top uk-display-block" uk-icon="icon: search; ratio: 2"></span>
+    Add Query
+    </button>
+        <div uk-drop="mode: click">
+          <div class="uk-card uk-card-default">
+            <div class="uk-padding-small" style="max-height:400px;overflow: auto">
+              <form>
+                <fieldset class="uk-fieldset">
+                  <small>
+                    My Result [<b>${esQ.condition}</b>] match [<i>${esQ.field}</i>] with [<em>${esQ.fieldValue}</em>]
+                  </small>
+                  <div class="uk-margin">
+                    <select class="uk-select uk-form-small" value.bind="esQ.condition">
+                                    <option value="">Select a condition type</option>
+                                    <option value="must">MUST HAVE</option>
+                                    <option value="must_not">MUST NOT HAVE</option>
+                                    <option value="should">SHOULD HAVE</option>
+                                </select>
+                  </div>
+                  <div class="uk-margin">
+                    <select class="uk-select uk-form-small" value.bind="esQ.field">
+                                    <option value="">Select a Field</option>
+                                    <option value="_all">All</option>
+                                    <option repeat.for="o of maps">${o}</option>
+                                </select>
+                  </div>
+                  <div class="uk-margin">
+                    <select class="uk-select uk-form-small" value.bind="esQ.qType">
+                                    <option value="">Select a query type</option>
+                                    <option if.bind="esQ.field!='_all'" value="term">Term</option>
+                                    <option if.bind="esQ.field!='_all'" value="wildcard">Wildcard</option>
+                                    <option if.bind="esQ.field!='_all'" value="prefix">Prefix</option>
+                                    <option if.bind="esQ.field!='_all'" value="fuzzy">Fuzzy</option>
+                                    <option if.bind="esQ.field!='_all'" value="range">Range</option>
+                                    <option value="query_string">Query String</option>
+                                    <option if.bind="esQ.field!='_all'" value="text">Text</option>
+                                    <option if.bind="esQ.field!='_all'" value="missing">Missing</option>
+                                </select>
+                  </div>
+                  <div class="uk-margin">
+                    <input id="field" type="text" class="uk-input uk-form-small" value.bind="esQ.fieldValue" placeholder="Enter a value to match">
+                  </div>
+
+                  <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" ng-click="addToQuery(esQ)">ADD TO QUERY</button>
+                </fieldset>
+              </form>
+            </div>
+            <!--<div class="uk-card-footer">
+            <button class="uk-button uk-button-primary uk-button-small uk-width-1-1" click.trigger="createIndex(iName,sCount,rCount)">Pick</button>
+          </div>-->
+          </div>
+        </div>
+      </div>
+      <div class="uk-inline">
+        <button class="uk-button uk-button-default">
+    <span class="uk-margin-small-top uk-display-block" uk-icon="icon: album; ratio: 2"></span>
+    Add Aggregation
+    </button>
+        <div uk-drop="mode: click">
+          <div class="uk-card uk-card-default">
+            <div class="uk-padding-small" style="max-height:200px;overflow: auto">
+
+            </div>
+            <!--<div class="uk-card-footer">
+            <button class="uk-button uk-button-primary uk-button-small uk-width-1-1" click.trigger="createIndex(iName,sCount,rCount)">Pick</button>
+          </div>-->
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="uk-width-1-3">
+      <div class="uk-card uk-card-default uk-card-body uk-width-1-2@s">
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
+          <li class="uk-nav-header">Picked Indices</li>
+          <li repeat.for="index of selectedIndices"><a href="#"><span class="uk-margin-small-right" uk-icon="icon: database" ></span> ${index}</a></li>
+        </ul>
+      </div>
+      ${selectedIndices}
+    </div>
+    <div class="uk-width-2-3">
+
+    </div>
+  </div>
+</template>
