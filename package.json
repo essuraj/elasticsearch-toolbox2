@@ -1,7 +1,8 @@
 {
   "name": "elasticsearch-toolbox",
   "description": "An elasticsearch client application.",
-  "version": "2.0.0",   "engines": {
+  "version": "2.0.0",
+  "engines": {
     "node": "6.9.4"
   },
   "repository": {
@@ -14,38 +15,37 @@
   },
   "license": "MIT",
   "dependencies": {
-    "aurelia-animator-css": "^1.0.0",
-    "aurelia-bootstrapper": "^1.0.0",
-    "bluebird": "^3.4.1",
-    "express": "^4.14.1",
-    "fs-extra": "^2.0.0",
-    "requirejs": "^2.3.2",
+    "aurelia-animator-css": "^1.0.2",
+    "aurelia-bootstrapper": "^2.1.1",
+    "bluebird": "^3.5.0",
+    "express": "^4.15.2",
+    "fs-extra": "^2.1.2",
+    "requirejs": "^2.3.3",
     "text": "github:requirejs/text#latest"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "aurelia-cli": "^0.24.0",
-    "aurelia-testing": "^1.0.0-beta.2.0.0",
-    "aurelia-tools": "^0.2.2",
-    "browser-sync": "^2.13.0",
-    "connect-history-api-fallback": "^1.2.0",
+    "aurelia-cli": "^0.28.0",
+    "aurelia-tools": "1.0.0",
+    "browser-sync": "^2.18.8",
+    "connect-history-api-fallback": "^1.3.0",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-changed-in-place": "^2.0.3",
+    "gulp-changed-in-place": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^2.0.0-alpha",
-    "gulp-notify": "^2.2.0",
-    "minimatch": "^3.0.2",
-    "through2": "^2.0.1",
-    "uglify-js": "^2.6.3",
-    "vinyl-fs": "^2.4.3",
-    "event-stream": "^3.3.3",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-notify": "3.0.0",
+    "minimatch": "^3.0.3",
+    "through2": "^2.0.3",
+    "uglify-js": "^2.7.5",
+    "vinyl-fs": "^2.4.4",
+    "event-stream": "^3.3.4",
     "gulp-typescript": "^2.13.6",
-    "gulp-tslint": "^5.0.0",
-    "tslint": "^3.11.0",
-    "typescript": "2.1.6",
-    "typings": "^1.3.0",
+    "gulp-tslint": "^7.1.0",
+    "tslint": "5.0.0",
+    "typescript": "2.2.2",
+    "typings": "^2.1.0",
     "gulp-htmlmin": "^3.0.0",
-    "html-minifier": "^3.2.3"
+    "html-minifier": "^3.4.2"
   }
 }

@@ -74,7 +74,31 @@ export class ESFactory {
             console.error(error);
         }
     }
-
+async getResult(url: string, indexName: string | string[], types: string | string[] = undefined,queryBody:string,from=0,size=20) {
+        try {
+            await this.connectToESWithURL(url);
+            let query = {
+                index: indexName,
+                body: {
+                    query: {
+                        match_all: {
+                        }
+                    },
+                    from:from,
+                    size:size
+                }
+            } as any;
+            if (types !== undefined) {
+                query.type = types;
+            }
+            query.body=queryBody;
+            var res = await this.client.search(query);
+           
+            return res;
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
 }
 
