@@ -16,9 +16,17 @@ export class Builder {
 		this.factory = new esF();
 
 	}
-	attached() {
-
-
+	esQ={};
+	esQA={};
+	queriesList = [];
+	aggList = [];
+	addToQuery() {
+		this.queriesList.push((JSON.parse(JSON.stringify(this.esQ))));
+	this.esQ={};
+	}
+	addToAggQuery() {
+		this.aggList.push((JSON.parse(JSON.stringify(this.esQA))));
+	this.esQA={};
 	}
 	async getMappings() {
 		this.maps = new Array();
