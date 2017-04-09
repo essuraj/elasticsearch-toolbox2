@@ -5,10 +5,12 @@
 .warn-border {
   border-left: 4px solid darkorange;
 }
-  #my-code-wrapper {
-      width:100%;
-      height:900px;
-  }
+
+#my-code-wrapper {
+  width: 100%;
+  height: 900px;
+}
+
 .error-border {
   border-left: 4px solid darkred;
 }
@@ -17,6 +19,18 @@
   background: #8BC34A !important;
 }
 
+.sub-nav {
+  background: #9ccc66;
+}
+.sub-nav>.uk-active>a{
+  color: white;
+  font-weight: 700;
+  text-decoration-style: double
+}
+.sub-nav>*>:first-child{
+  color: white;
+  font-weight: 400;
+}
 .main-nav-bg-color a {
   color: white;
 }
@@ -24,25 +38,34 @@
 .main-nav-bg-color .uk-navbar-item {
   height: 50px
 }
-.main-nav-bg-color .uk-logo{
-  background:#9CCC65;
+
+.main-nav-bg-color .uk-logo {
+  background: #9CCC65;
 }
+
 .uk-label-faded {
   background-color: #c3bebf;
   color: #fff;
 }
-.pointable
-{
+
+.pointable {
   cursor: pointer !important
- }
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,p,li {
+h6,
+p,
+li {
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif !important;
 }
-body code span,body code, pre, .cm-string{
+
+body code span,
+body code,
+pre,
+.cm-string {
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
 }

@@ -1,7 +1,7 @@
 <template>
   <!--<h3 class="uk-h3">${title}</h3>-->
   <div class="uk-panel" uk-grid="">
-    <div class="uk-width-1-1">
+    <div class="uk-width-1-1 uk-flex uk-flex-center">
       <div class="uk-inline">
         <button class="uk-button uk-button-default">
     <span class="uk-margin-small-top uk-display-block" uk-icon="icon: database; ratio: 2"></span>
@@ -113,12 +113,15 @@
           <div class="uk-card-header">
             <div class="uk-grid-small uk-flex-middle" uk-grid>
               <div class="uk-width-expand">
-                <h3 class="uk-card-title uk-margin-remove-bottom">Your Query</h3>
-                <p class="uk-text-meta uk-margin-remove-top">
-                  Search in <br />
+                <!--<h3 class="uk-card-title uk-margin-remove-bottom">Your Query</h3>-->
+                <p>Searching in following indices</p>
+                <div class=" uk-width-1-1">
                   <span show.bind="selectedIndices.length===0" class="uk-label uk-margin-small uk-margin-small-left">ALL</span>
-                  <span repeat.for="index of selectedIndices" class="uk-label uk-margin-small uk-margin-small-left">${index}</span>
-                </p>
+                  <span repeat.for="index of selectedIndices" class="uk-label uk-margin-small uk-margin-small-left">${index}
+<a class="uk-text-warning" href="" uk-icon="icon: close" click.trigger="selectedIndices.splice($index,1)"></a>
+
+                </span>
+                </div>
               </div>
             </div>
           </div>
