@@ -16,17 +16,17 @@ export class Builder {
 		this.factory = new esF();
 
 	}
-	esQ={};
-	esQA={};
+	esQ = {};
+	esQA = {};
 	queriesList = [];
 	aggList = [];
 	addToQuery() {
 		this.queriesList.push((JSON.parse(JSON.stringify(this.esQ))));
-	this.esQ={};
+		this.esQ = {};
 	}
 	addToAggQuery() {
 		this.aggList.push((JSON.parse(JSON.stringify(this.esQA))));
-	this.esQA={};
+		this.esQA = {};
 	}
 	async getMappings() {
 		this.maps = new Array();
@@ -57,15 +57,21 @@ export class Builder {
 			}
 
 		} else {
-			let properties = mappings[map].properties;
+			let o = mappings[map];
+			if (o.properties === undefined) {
+				this.maps.push(index + "." + map)
+			}
+			else {
+				let properties = o.properties;
 
 
-			let propKeys = Object.keys(properties)
-			console.info(propKeys)
-			propKeys.forEach(map2 => {
-				console.log(index + "." + map + "." + map2)
-				this.getPropsAndFields(index + "." + map, properties, map2)
-			});
+				let propKeys = Object.keys(properties)
+				console.info(propKeys)
+				propKeys.forEach(map2 => {
+					console.log(index + "." + map + "." + map2)
+					this.getPropsAndFields(index + "." + map, properties, map2)
+				});
+			}
 		}
 	}
 }
