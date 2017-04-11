@@ -7,7 +7,7 @@
   <require from="./resources/elements/browse/browse"></require>
   <require from="./resources/elements/builder/builder"></require>
   <div uk-grid class="uk-grid-small">
-    <nav uk-navbar class="uk-navbar-container uk-width-1-1 main-nav-bg-color uk-animation-slide-top">
+    <nav uk-navbar class="uk-navbar-container uk-width-1-1 main-nav-bg-color uk-animation-slide-top uk-animation-fast">
       <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo" href="#">elastic5earch toolbox<sup>2</sup></a>
         <div class="uk-navbar-item">
@@ -50,7 +50,7 @@
         </div>
       </div>
     </nav>
-    <div class="uk-width-1-1 uk-margin-remove" show.bind="indexes">
+    <div class="uk-width-1-1 uk-margin-remove  uk-animation-slide-top-small uk-animation-fast" show.bind="indexes" >
       <ul class="uk-subnav uk-subnav-divider uk-padding-small uk-margin-remove-bottom sub-nav" uk-switcher>
         <li><a href="#">Home</a></li>
         <li><a href="#">Browse</a></li>
