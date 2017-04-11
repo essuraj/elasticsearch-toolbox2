@@ -8,7 +8,7 @@ declare var CodeMirror: any;
 export class Builder {
 	factory: esF;
 	@bindable indexes;
-	@bindable esURL;
+	@bindable esurl;
 	title = 'Welcome to the Query builder';
 	selectedIndices = [];
 	maps: String[];
@@ -30,7 +30,7 @@ export class Builder {
 	}
 	async getMappings() {
 		this.maps = new Array();
-		let indexNMaps = await this.factory.getMappings(this.esURL, this.selectedIndices);
+		let indexNMaps = await this.factory.getMappings(this.esurl, this.selectedIndices);
 		console.log(indexNMaps)
 		let indexes = Object.keys(indexNMaps)
 		indexes.map(x => {

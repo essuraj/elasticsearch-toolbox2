@@ -8,7 +8,7 @@ declare var CodeMirror: any;
 export class Query {
 	factory: esF;
 	@bindable indexes;
-	@bindable esURL;
+	@bindable esurl;
 	result = {};
 	queryEditor: cm ;
 	resultEditor: cm ;
@@ -63,8 +63,8 @@ export class Query {
 	}
 	async getQ() {
 
-		console.log(this.selectedIndices)
-		this.result = await this.factory.getResult(this.esURL, this.selectedIndices,undefined,this.queryEditor.getValue());
+		console.log(this.esurl,this.selectedIndices)
+		this.result = await this.factory.getResult(this.esurl, this.selectedIndices,undefined,this.queryEditor.getValue());
 		this.resultEditor.setValue(JSON.stringify(this.result, null, 4));
 	}
 

@@ -5,7 +5,7 @@ declare var UIkit, Prism;
 export class Browse {
   @bindable client;
   @bindable indexes;
-  @bindable esURL;
+  @bindable esurl;
   data: any[];
   show: string;
   dataHeader: string[];
@@ -22,9 +22,9 @@ export class Browse {
   }
   title = 'Welcome to browse'
   async createIndex(indexName, noOfShards, noOfReplicas) {
-    var res = await this.factory.createIndex(this.esURL, indexName, noOfShards, noOfReplicas);
+    var res = await this.factory.createIndex(this.esurl, indexName, noOfShards, noOfReplicas);
     console.info(res);
-    this.indexes = await this.factory.getIndexData(this.esURL);
+    this.indexes = await this.factory.getIndexData(this.esurl);
     UIkit.notification("Completed", { status: 'primary' })
   }
   async setData(indexName:string,types:string|string[]){
@@ -39,7 +39,7 @@ export class Browse {
   async getData() {
    
     console.warn(this.types);
-    var result = await this.factory.getData(this.esURL, this.query.indexName, this.query.types, this.query.from, this.query.size);
+    var result = await this.factory.getData(this.esurl, this.query.indexName, this.query.types, this.query.from, this.query.size);
     this.data = result.data;
     this.dataHeader = result.dataHeader;
   }
