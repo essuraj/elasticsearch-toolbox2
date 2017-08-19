@@ -22,7 +22,7 @@ var typescriptCompiler = typescriptCompiler || null;
 
 function buildTypeScript() {
   typescriptCompiler = ts.createProject('tsconfig.json', {
-    "typescript": require('typescript')
+    typescript: require('typescript')
   });
 
   let dts = gulp.src(project.transpiler.dtsSource);
@@ -33,7 +33,8 @@ function buildTypeScript() {
   return eventStream.merge(dts, src)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
     .pipe(sourcemaps.init())
-    .pipe(ts(typescriptCompiler))
+    .pipe(typescriptCompiler())
+    .pipe(sourcemaps.write({ sourceRoot: 'src' }))
     .pipe(build.bundle());
 }
 
